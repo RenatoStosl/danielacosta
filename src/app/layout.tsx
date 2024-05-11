@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavigationBar from "@/components/navigationBar";
+import Header from "@/components/Layout/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body className={`${inter.className} bg-[#070D1B]`}>
-        <NavigationBar />
-        {children}
+    <html lang="pt-br" className="h-full w-full">
+      <body className={`${inter.className} bg-[#070D1B] flex flex-col`}>
+        <Header />
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
